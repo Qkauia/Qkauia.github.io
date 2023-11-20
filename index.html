@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-center-simple.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","width":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"Available values":"default | flat | mac","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#00BB00","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","width":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"Available values":"default | flat | mac","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#3C4C55","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一位從切菜烹飪轉職工程師">
 <meta property="og:type" content="website">
@@ -148,6 +149,10 @@
 
         </div>
       </div>
+        <div class="back-to-top animated" role="button" aria-label="回到頂端">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
 
     
@@ -186,7 +191,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/19/hello-world/" class="post-title-link" itemprop="url">關於JavaScript</a>
+          <a href="/2023/11/19/hello-world/" class="post-title-link" itemprop="url">變數提昇？_？</a>
         </h2>
 
         <div class="post-meta-container">
@@ -204,7 +209,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-11-20 18:59:47" itemprop="dateModified" datetime="2023-11-20T18:59:47+08:00">2023-11-20</time>
+      <time title="修改時間：2023-11-20 19:53:05" itemprop="dateModified" datetime="2023-11-20T19:53:05+08:00">2023-11-20</time>
     </span>
 
   
@@ -217,34 +222,64 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="宣告"><a href="#宣告" class="headerlink" title="宣告:"></a>宣告:</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">More</span> <span class="attr">info</span>: [<span class="title class_">Writing</span>](<span class="attr">https</span>:<span class="comment">//hexo.io/docs/writing.html)</span></span><br><span class="line"></span><br><span class="line">### <span class="title class_">Run</span> server</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">` bash</span></span><br><span class="line"><span class="string">$ hexo server</span></span><br></pre></td></tr></table></figure>
+          <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>在ES6之前宣告只有<code>var</code> 宣告方法，不會有重複宣告問題，也不會主動顯示錯誤訊息，ES6之後引入了<code>let</code> ，解決<code>var</code> 重複宣告以及變數污染問題，不過由於ES6之後。變數宣告變成兩種方法，造成新手學習上(本人)常常混亂，這些觀念也常出現在面試題中，可知<code>var</code> 與<code>let</code> 背後重要性。這邊就簡短整理兩個宣告變數方法，帶上我學習後的觀念進行分析。</p>
+<p>基本上程式碼閱讀都是由上往下，這邊為了證實<code>var</code>與<code>let</code> 差異，反向操作驗證一下</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a  = <span class="number">123</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br></pre></td></tr></table></figure>
-
-<p><code>python</code></p>
+<ul>
+<li><p><code>var</code>宣告會印出<code>undefined</code></p>
+</li>
+<li><p><code>let</code>部分會顯示錯誤訊息<code>Cannot access &#39;b&#39; before initialization</code></p>
+<p>  從錯誤訊息解讀：<code>b</code> 未初始化，無法access</p>
+</li>
+</ul>
+<p>由此可知兩者宣告得到結果並不一致，必須了解JavaScript解讀過程步驟，也就是所謂<code>變數提昇</code>(Hoisting)</p>
+<h3 id="變數提昇-Hoisting-："><a href="#變數提昇-Hoisting-：" class="headerlink" title="變數提昇 (Hoisting)："></a>變數提昇 <strong>(Hoisting)：</strong></h3><p>JavaScript(直譯式程式語言)對遊覽器閱讀兩回：</p>
 <table>
 <thead>
 <tr>
-<th align="center">第一階段</th>
-<th align="center">第二階段</th>
+<th align="center"></th>
+<th align="right"><strong><code>var</code></strong></th>
+<th align="center"></th>
+<th align="right"><strong><code>let</code></strong></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">Content</td>
-<td align="center">Content</td>
+<td align="center"><strong>建立期</strong></td>
+<td align="right">宣告：</td>
+<td align="center">-</td>
+<td align="right">宣告：</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td align="center">Content</td>
-<td align="center">Content</td>
+<td align="center"></td>
+<td align="right">初始化：</td>
+<td align="center"><code>undefined</code></td>
+<td align="right">進入暫時死區：</td>
+<td align="center"><code>TDZ</code></td>
+</tr>
+<tr>
+<td align="center"><strong>執行期</strong></td>
+<td align="right">賦予值：</td>
+<td align="center">assign variable</td>
+<td align="right">賦予值：</td>
+<td align="center">離開死區assign variable</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="right">若無指定值：</td>
+<td align="center"><code>undefined</code></td>
+<td align="right">若無指定值：</td>
+<td align="center">錯誤訊息</td>
 </tr>
 </tbody></table>
+<ul>
+<li><p><code>var</code> 在建立期就初始化<code>undefind</code> ，因此無論有無賦予值，都不會顯示錯誤。</p>
+</li>
+<li><p><code>let</code> 在建立期的行為有點像是一位傲嬌的公主，她被囚禁在暫時死區的塔內。直到有王子(即程式執行到賦值的地方)去解救她，她才會從暫時死區中釋放出來，供給使用。在這之前，如果試圖訪問她，她才不會理你(錯誤訊息)。</p>
+</li>
+</ul>
 
       
     </div>
@@ -291,10 +326,6 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="回到頂端">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
