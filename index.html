@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/19/hello-world/" class="post-title-link" itemprop="url">變數提昇？_？</a>
+          <a href="/2023/11/19/hello-world/" class="post-title-link" itemprop="url">JavaScript-變數</a>
         </h2>
 
         <div class="post-meta-container">
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-11-21 21:36:28" itemprop="dateModified" datetime="2023-11-21T21:36:28+08:00">2023-11-21</time>
+      <time title="修改時間：2023-11-22 02:46:28" itemprop="dateModified" datetime="2023-11-22T02:46:28+08:00">2023-11-22</time>
     </span>
 
   
@@ -225,8 +225,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>在ES6之前宣告只有<code>var</code> 宣告方法，不會有重複宣告問題，也不會主動顯示錯誤訊息，ES6之後引入了<code>let</code> ，解決<code>var</code> 重複宣告以及變數污染問題，不過由於ES6之後。變數宣告變成兩種方法，造成新手學習上(本人)常常混亂，這些觀念也常出現在面試題中，可知<code>var</code> 與<code>let</code> 背後重要性。這邊就簡短整理兩個宣告變數方法，帶上我學習後的觀念進行分析。</p>
-<p>基本上程式碼閱讀都是由上往下，這邊為了證實<code>var</code>與<code>let</code> 差異，反向操作驗證一下</p>
+          <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>在ES6之前宣告只有<code>var</code> 宣告方法，不會有重複宣告問題，也不會主動顯示錯誤訊息，ES6之後引入了<code>let</code> ，解決<code>var</code> 重複宣告以及變數污染問題。也就因為ES6之後，變數宣告變成兩種方法，造成新手學習上(本人)常常混亂，這些觀念也常出現在面試題中，可知<code>var</code> 與<code>let</code> 背後重要性。這邊就簡短整理兩個宣告變數方法，附帶上我學習後的觀念進行分析。</p>
+<p>基本上程式碼都是由上往下閱讀，這邊為了證實<code>var</code>與<code>let</code> 差異，反向操作驗證一下:</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -238,56 +238,139 @@
 </ul>
 <p>由此可知兩者宣告得到結果並不一致，必須了解JavaScript解讀過程步驟，也就是所謂<code>變數提昇</code>(Hoisting)</p>
 <h3 id="變數提昇-Hoisting-："><a href="#變數提昇-Hoisting-：" class="headerlink" title="變數提昇 (Hoisting)："></a>變數提昇 <strong>(Hoisting)：</strong></h3><p>JavaScript(直譯式程式語言)對遊覽器閱讀兩回：</p>
+<p><strong><code>var</code>：</strong></p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="right"><strong><code>var</code></strong></th>
-<th align="center"></th>
-<th align="right"><strong><code>let</code></strong></th>
-<th align="center"></th>
+<th align="center"><strong>建立期(第一次閱讀)</strong></th>
+<th align="center"><strong>執行期(第二次閱讀)</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><strong>建立期</strong></td>
-<td align="right">宣告：</td>
-<td align="center">-</td>
-<td align="right">宣告：</td>
-<td align="center">-</td>
+<td align="center">1. 宣告</td>
+<td align="center">賦予值：assign variable</td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="right">初始化：</td>
-<td align="center"><code>undefined</code></td>
-<td align="right">進入暫時死區：</td>
-<td align="center"><code>TDZ</code></td>
+<td align="center">2. 初始化：<code>undefined</code></td>
+<td align="center">若無指定值：<code>undefined</code></td>
+</tr>
+</tbody></table>
+<p><strong><code>let</code>：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>建立期(第一次閱讀)</strong></th>
+<th align="center"><strong>執行期(第二次閱讀)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1. 宣告：</td>
+<td align="center">賦予值：離開死區assign variable</td>
 </tr>
 <tr>
-<td align="center"><strong>執行期</strong></td>
-<td align="right">賦予值：</td>
-<td align="center">assign variable</td>
-<td align="right">賦予值：</td>
-<td align="center">離開死區assign variable</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="right">若無指定值：</td>
-<td align="center"><code>undefined</code></td>
-<td align="right">若無指定值：</td>
-<td align="center">錯誤訊息</td>
+<td align="center">2. 進入暫時死區： <code>TDZ</code>&emsp;&ensp;&ensp;&ensp;&ensp;</td>
+<td align="center">若無指定值：錯誤訊息</td>
 </tr>
 </tbody></table>
 <ul>
 <li><code>var</code> 在建立期就初始化<code>undefind</code> ，因此無論有無賦予值，都不會顯示錯誤。</li>
 <li><code>let</code> 在建立期的行為有點像是一位傲嬌的公主，她被囚禁在暫時死區的塔內。直到有王子(即程式執行到賦值的地方)去解救她，她才會從暫時死區中釋放出來，供給使用。在這之前，如果試圖訪問她，她才不會理你(錯誤訊息)。</li>
 </ul>
-<p>大致了解變數提昇觀念之後，再來探討這兩者變數在區域上有什麼不同:</p>
-<h3 id="變數作用範圍-Scope"><a href="#變數作用範圍-Scope" class="headerlink" title="變數作用範圍(Scope)"></a>變數作用範圍(Scope)</h3><ul>
-<li><code>var</code>Function Scope</li>
-<li><code>let</code>Block Scope</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">example</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// 使用 var 宣告變數 x</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">10</span>; <span class="comment">// 這裡重新宣告了同名變數 x，覆蓋了外層的 x</span></span><br><span class="line">    <span class="keyword">var</span> y = <span class="number">20</span>; <span class="comment">// 在 if 區塊內的變數 y，可以在整個函式作用域內存取</span></span><br><span class="line">    <span class="keyword">let</span> z = <span class="number">30</span>; <span class="comment">// 在 if 區塊內使用 let 宣告的變數 z，只能在該區塊內存取</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// 印出10，因為此處的 x 已經被重新賦值為 5</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">// 印出20，可以存取 y，因為它在同一函式作用域內</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(z); <span class="comment">// 印出30，可以存取 z，因為它在 if 區塊作用域內</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// 印出10，因為 if 區塊內重新宣告的 x 影響到外層作用域的 x</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">// 印出20，可以存取 y，因為它在同一函式作用域內 (var 具有函式作用域)</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(z); <span class="comment">// 會報錯，因為 z 在 if 區塊作用域內，超出了其宣告的作用範圍</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// 這行會報錯，因為 var 超出函式作用區，此處無法存取變數 x</span></span><br><span class="line"><span class="title function_">example</span>();</span><br></pre></td></tr></table></figure>
-
+<p>再來以上面簡單範例分析兩者變數提昇過程：</p>
+<hr>
+<h4 id="解析var變數提昇過程："><a href="#解析var變數提昇過程：" class="headerlink" title="解析var變數提昇過程："></a>解析<code>var</code>變數提昇過程：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>程式碼</strong></th>
+<th align="center"><strong><code>var</code>提昇過程</strong>→</th>
+<th align="center"><strong>建立期(第一次閱讀)</strong></th>
+<th align="center"><strong>執行期(第二次閱讀)⤵</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>console.log(a)</code></td>
+<td align="center"></td>
+<td align="center">函式不動作</td>
+<td align="center">執行<code>console.log(a = undefined )</code></td>
+</tr>
+<tr>
+<td align="center">↓</td>
+<td align="center"></td>
+<td align="center">↓</td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td align="center"><code>var a = 1</code></td>
+<td align="center"></td>
+<td align="center">宣告<u><code>a = undefined</code></u>⤴</td>
+<td align="center"><strong>執行結束：印出<u><code>undefined</code></u></strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="解析let變數提昇過程："><a href="#解析let變數提昇過程：" class="headerlink" title="解析let變數提昇過程："></a>解析<code>let</code>變數提昇過程：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>程式碼</strong></th>
+<th align="center"><strong><code>let</code>提昇過程</strong>→</th>
+<th align="center"><strong>建立期(第一次閱讀)</strong></th>
+<th align="center"><strong>執行期(第二次閱讀)⤵</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>console.log(b)</code></td>
+<td align="center"></td>
+<td align="center">函式不動作</td>
+<td align="center">執行<code>console.log(a = 我還在死區 )</code></td>
+</tr>
+<tr>
+<td align="center">↓</td>
+<td align="center"></td>
+<td align="center">↓</td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td align="center"><code>var b = 1</code></td>
+<td align="center"></td>
+<td align="center">宣告<u>進入暫時死區<code>TDZ</code></u>⤴</td>
+<td align="center"><strong><u>錯誤，初始化之前無法指定</u></strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="看完了變數提昇過程，相信很多人對於變數提昇這專有名詞還是充滿疑問，所以到底是在提昇什麼-本人心聲-？？"><a href="#看完了變數提昇過程，相信很多人對於變數提昇這專有名詞還是充滿疑問，所以到底是在提昇什麼-本人心聲-？？" class="headerlink" title="看完了變數提昇過程，相信很多人對於變數提昇這專有名詞還是充滿疑問，所以到底是在提昇什麼(本人心聲)？？"></a>看完了變數提昇過程，相信很多人對於變數提昇這專有名詞還是充滿疑問，所以到底是在提昇什麼(本人心聲)？？</h4><p>我個人的猜解是變數提昇是屬於視覺上的描述，對於實際過程並沒有直接的解讀，也無法用簡短名詞描述這提昇過程，所以只好用視覺角度命名？！(或許原文層面也有不同解釋？)總之記得原理還是最重要～<br>大致了解變數提昇觀念之後，再來必須進一步探討這兩者變數在區域上有什麼不同:</p>
+<h3 id="變數作用範圍-Scope-："><a href="#變數作用範圍-Scope-：" class="headerlink" title="變數作用範圍(Scope)："></a>變數作用範圍(Scope)：</h3><h4 id="變數作用範圍（Variable-Scope）指的是在程式中，變數被定義時所擁有的有效範圍，也就是該變數可以被存取的範圍："><a href="#變數作用範圍（Variable-Scope）指的是在程式中，變數被定義時所擁有的有效範圍，也就是該變數可以被存取的範圍：" class="headerlink" title="變數作用範圍（Variable Scope）指的是在程式中，變數被定義時所擁有的有效範圍，也就是該變數可以被存取的範圍："></a>變數作用範圍（Variable Scope）指的是在程式中，變數被定義時所擁有的有效範圍，也就是該變數可以被存取的範圍：</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><strong><code>var</code></strong></th>
+<th align="center"><strong><code>let</code></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">scope</td>
+<td align="center">Function Scope</td>
+<td align="center">Block Scope&#x2F;(Global Scope)</td>
+</tr>
+<tr>
+<td align="center">作用範圍</td>
+<td align="center">函式範圍</td>
+<td align="center">區塊範圍(全域範圍)</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="檢視var作用範圍："><a href="#檢視var作用範圍：" class="headerlink" title="檢視var作用範圍："></a>檢視<code>var</code>作用範圍：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">example</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> v = <span class="number">5</span>; </span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> v = <span class="number">10</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(v); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(v);</span><br><span class="line"><span class="title function_">example</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>≡00≡</strong>  &emsp;(代表行數)<br><strong>≡02≡</strong>  &emsp;在函式內使用<code>var</code>宣告<code>v = 5</code>。<br><strong>≡05≡</strong>  &emsp;在<code>if Block</code>內重新宣告<code>v = 10</code>。<br><strong>≡07≡</strong>  &emsp;在<code>if Block</code>內<code>console.log(v)</code>，當<code>example()</code>呼叫，印出<code>10</code> 。<br>&emsp;<strong>↪雖然<code>v</code>看似在不同區域使用<code>var</code>宣告，不過因為都還在<u>函式範圍</u>內，<code>v</code>值會被<u>第二次宣告覆蓋</u>。</strong><br><strong>≡19≡</strong> &emsp;顯示錯誤<code>not defined</code>。<br>&emsp;<strong>↪<code>var</code><u>超出函式範圍</u>無法抓取。</strong></p>
+</blockquote>
+<hr>
+<h4 id="檢視let作用範圍："><a href="#檢視let作用範圍：" class="headerlink" title="檢視let作用範圍："></a>檢視<code>let</code>作用範圍：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> z = <span class="number">40</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">example</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> z = <span class="number">30</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(z);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(z);</span><br><span class="line"><span class="title function_">example</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>≡00≡</strong>  &emsp;(代表行數)<br><strong>≡01≡</strong>  &emsp;在全域用<code>let</code>宣告<code>z = 40</code>。<br><strong>≡05≡</strong>  &emsp;在<code>if Block</code>內重新宣告<code>z = 30</code>。<br><strong>≡10≡</strong>  &emsp;抓到全域變數，印出40。<br><strong>≡11≡</strong>  &emsp;當<code>example()</code>呼叫，印出<code>40</code> .ᐟ.ᐟ.ᐟ。<br>&emsp;<strong>↪雖然(≡07≡)已經跳脫<u>Block區域</u>，照理來說就會直接顯示錯誤<code>not defined</code>，</strong><br>&emsp;<strong>不過因為(≡01≡)全域範圍有宣告，導致<code>example()</code>呼叫會找到<u>全域變數</u>的值。</strong></p>
+</blockquote>
+<hr>
+<p>檢視過<code>var</code>與<code>let</code>兩者宣告範例，是否發現只要把<strong>程式碼區塊</strong>解析清楚，再加上有<strong>變數提昇</strong>觀念，感覺就不是那麼複雜了？！不過以上面範例來說，還有一個<strong>重複宣告</strong>可以延伸(汗)…</p>
+<h3 id="變數重複宣告："><a href="#變數重複宣告：" class="headerlink" title="變數重複宣告："></a>變數重複宣告：</h3>
       
     </div>
 
