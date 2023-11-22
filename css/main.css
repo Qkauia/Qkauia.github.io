@@ -978,6 +978,15 @@ pre code {
 .post-body .note :last-child {
   margin-bottom: 0;
 }
+.post-body .note:not(.no-icon) {
+  padding-left: 2.5em;
+}
+.post-body .note:not(.no-icon)::before {
+  font-size: 1.5em;
+  left: 0.3em;
+  position: absolute;
+  top: calc(50% - 1em);
+}
 .post-body .note.default {
   background: #f3f3f3;
   border-color: #e1e1e1;
@@ -990,6 +999,11 @@ pre code {
 .post-body .note.default a:not(.btn):hover {
   border-bottom-color: #454545;
   color: #454545;
+}
+.post-body .note.default:not(.no-icon)::before {
+  content: '\f0a9';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
 }
 .post-body .note.primary {
   background: #f3daff;
@@ -1004,6 +1018,11 @@ pre code {
   border-bottom-color: #453298;
   color: #453298;
 }
+.post-body .note.primary:not(.no-icon)::before {
+  content: '\f055';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
 .post-body .note.info {
   background: #d9edf7;
   border-color: #b3e5ef;
@@ -1016,6 +1035,11 @@ pre code {
 .post-body .note.info a:not(.btn):hover {
   border-bottom-color: #215761;
   color: #215761;
+}
+.post-body .note.info:not(.no-icon)::before {
+  content: '\f05a';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
 }
 .post-body .note.success {
   background: #dff0d8;
@@ -1030,6 +1054,11 @@ pre code {
   border-bottom-color: #32562c;
   color: #32562c;
 }
+.post-body .note.success:not(.no-icon)::before {
+  content: '\f058';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
 .post-body .note.warning {
   background: #fcf4e3;
   border-color: #fae4cd;
@@ -1043,6 +1072,11 @@ pre code {
   border-bottom-color: #714f30;
   color: #714f30;
 }
+.post-body .note.warning:not(.no-icon)::before {
+  content: '\f06a';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
 .post-body .note.danger {
   background: #f2dfdf;
   border-color: #ebcdd2;
@@ -1055,6 +1089,11 @@ pre code {
 .post-body .note.danger a:not(.btn):hover {
   border-bottom-color: #84333f;
   color: #84333f;
+}
+.post-body .note.danger:not(.no-icon)::before {
+  content: '\f056';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
 }
 .pdfobject-container iframe,
 .pdfobject-container embed {
@@ -1820,7 +1859,7 @@ pre code {
   width: 100%;
 }
 .with-love {
-  color: #ff004f;
+  color: #d1c15b;
   display: inline-block;
   margin: 0 5px;
   animation: icon-animate 1.33s ease-in-out infinite;
@@ -1890,6 +1929,9 @@ pre code {
   .post-body .note {
     margin-bottom: 10px !important;
     padding: 10px !important;
+  }
+  .post-body .note:not(.no-icon) {
+    padding-left: 35px !important;
   }
   .post-body .tabs .tab-content .tab-pane {
     padding: 10px 10px 0 !important;
