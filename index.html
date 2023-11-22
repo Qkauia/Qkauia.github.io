@@ -88,7 +88,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index" rel="section"><i class="fa-solid fa-house-chimney-user fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/about" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index" rel="section"><i class="fa-solid fa-house-chimney-user fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/about" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
   </ul>
 </nav>
 
@@ -130,8 +130,9 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/tags/">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">標籤</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -206,7 +207,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2023-11-22 18:23:49 / 修改時間：18:24:36" itemprop="dateCreated datePublished" datetime="2023-11-22T18:23:49+08:00">2023-11-22</time>
+      <time title="創建時間：2023-11-22 18:23:49 / 修改時間：22:59:00" itemprop="dateCreated datePublished" datetime="2023-11-22T18:23:49+08:00">2023-11-22</time>
     </span>
 
   
@@ -221,7 +222,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>在ES6之前宣告只有<code>var</code> 宣告方法，不會有重複宣告問題，也不會主動顯示錯誤訊息，ES6之後引入了<code>let</code> ，解決<code>var</code> 重複宣告以及變數污染問題。也就因為ES6之後，變數宣告變成兩種方法，造成新手學習上(本人)常常混亂，這些觀念也常出現在面試題中，可知<code>var</code> 與<code>let</code> 背後重要性。這邊就簡短整理兩個宣告變數方法，附帶上我學習後的觀念進行分析。</p>
 <p>基本上程式碼都是由上往下閱讀，這邊為了證實<code>var</code>與<code>let</code> 差異，反向操作驗證一下:</p>
-<!-- ###### 範例a -->
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -398,7 +398,6 @@
 <ul>
 <li><code>let</code>宣告的結果，個別印出0, 1, 2</li>
 </ul>
-<hr>
 <p><strong>脳…脳が震える～</strong><br>兩個範例程式碼雖然只有10行左右，卻創造腦子無窮迴圈(汗)。<br>這時候必須讓腦子冷靜以及回憶，把目前所學的觀念帶入去分析</p>
 <hr>
 <h4 id="拆解迴圈程式碼裡運行過程："><a href="#拆解迴圈程式碼裡運行過程：" class="headerlink" title="拆解迴圈程式碼裡運行過程："></a>拆解迴圈程式碼裡運行過程：</h4><ol>
